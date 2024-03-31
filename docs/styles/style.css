@@ -1,0 +1,47 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body {
+    font-family: Arial;
+}
+
+nav {
+    background-color:brown;
+    padding-top: 0%;
+    padding-bottom: 0%;
+
+}
+nav img {
+    width: 15%;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding: 0%;
+    float: left; /* This ignores other elements' formats*/
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 2.5%;
+    margin-top: 0%;
+    margin-left: 0%;
+}
+nav ul li a{
+    color:#fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+nav ul li a::after{
+    background: #fff;
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{      /* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
+    width: 100%;
+}

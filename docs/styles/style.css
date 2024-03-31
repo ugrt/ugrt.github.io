@@ -3,11 +3,12 @@
     padding: 0%;
 }
 body {
-    font-family: Arial;
+    font-family: arial black;
+    background-color: #2a2b30;
 }
 
 nav {
-    background-color:brown;
+    background-color:#ec9a1f;
     padding-top: 0%;
     padding-bottom: 0%;
 
@@ -16,7 +17,7 @@ nav img {
     width: 15%;
     margin-top: 0%;
     margin-left: 0%;
-    padding: 0%;
+    padding-top: 0.5%;
     float: left; /* This ignores other elements' formats*/
 }
 nav ul li{
@@ -27,13 +28,13 @@ nav ul li{
     margin-left: 0%;
 }
 nav ul li a{
-    color:#fff;
+    color:#090a0e;
     text-decoration: none;
     font-size: 18px;
     position: relative;
 }
 nav ul li a::after{
-    background: #fff;
+    background: #090a0e;
     position: absolute;
     content: '';
     width: 0;
@@ -42,6 +43,16 @@ nav ul li a::after{
     bottom: -6px;
     transition: 0.5s;
 }
-nav ul li a:hover::after{      /* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
+nav ul li a:hover::after{/* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
     width: 100%;
+}      
+nav ul li a:hover::after + .hide { /*Trying to add scroll over menu*/
+    display: block;
+    color: red;
+    background: #fff;
 }
+
+.hide {
+    display: none;
+  }
+

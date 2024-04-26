@@ -10,12 +10,12 @@ body {
 
 /*Navigation Bar styles*/
 nav {
-    background-color:#ec9a1f;
+    background-color:#ec9a1f;    
     padding-top: 0%;
     padding-bottom: 0%;
 
 }
-nav img {
+#team-logo {
     width: 15%;
     margin-top: 0%;
     margin-left: 0%;

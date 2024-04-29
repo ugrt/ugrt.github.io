@@ -1,0 +1,9 @@
+Notes about the colours:
+Team Colours
+Black - #090a0e
+Yellow - #ffc72a
+Red - #c20430
+White - #ffffff
+
+Website Colours/Secondary colours:
+-arker Yellow - #ec9a1f

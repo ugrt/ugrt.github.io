@@ -30,6 +30,7 @@ body {
 .sticky-nav .nav-list li a {
     text-decoration: none;
     color: black;
+    font-size: 1.5em;
 }
 
 #no-background-team-logo {

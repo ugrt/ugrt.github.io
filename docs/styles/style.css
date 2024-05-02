@@ -25,6 +25,11 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    text-decoration: none;
+}
+.sticky-nav .nav-list li a {
+    text-decoration: none;
+    color: black;
 }
 
 #no-background-team-logo {
@@ -35,12 +40,13 @@ body {
     float: left; /* This ignores other elements' formats*/
 }
 
-.sticky-nav ul li{
+.sticky-nav .nav-list li{
     display: inline-block;
     list-style: none;
     padding: 2.5%;
     margin-top: 0%;
     margin-left: 0%;
+    text-decoration: none;
 }
 
 #projects-dropdown{

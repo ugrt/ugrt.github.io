@@ -79,3 +79,20 @@ h1 {
     text-shadow: 4px 4px #ec9a1f;
     /* transition: ease-in-out 0.5s; */
 }
+
+
+/* Flex container code */
+.about-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* probably going to want different colours for each page, or a border */
+.headshot-page {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}

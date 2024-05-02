@@ -9,10 +9,13 @@ body {
 }
 
 /*Navigation Bar styles*/
-nav {
+.sticky-nav {
     background-color:#ec9a1f;    
     padding-top: 0%;
     padding-bottom: 0%;
+    z-index: 1000;
+    width: 100%;
+    position: fixed;
 
 }
 #no-background-team-logo {
@@ -22,14 +25,14 @@ nav {
     padding-top: 0.5%;
     float: left; /* This ignores other elements' formats*/
 }
-nav ul li{
+.sticky-nav ul li{
     display: inline-block;
     list-style: none;
     padding: 2.5%;
     margin-top: 0%;
     margin-left: 0%;
 }
-nav ul li a{
+.sticky-nav ul li a{
     color:#090a0e;
     text-decoration: none;
     font-size: 18px;
@@ -45,10 +48,10 @@ ul li a::after{
     bottom: -15%;
     transition: 0.5s;
 }
-nav ul li a:hover::after{/* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
+.sticky-nav ul li a:hover::after{/* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
     width: 100%;
 } 
-nav li:hover ul#projects-dropdown {
+.sticky-nav li:hover ul#projects-dropdown {
     background-color:#ec9a1f;
     opacity: 1;
     top: 1%;

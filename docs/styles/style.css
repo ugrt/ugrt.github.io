@@ -68,9 +68,10 @@ ul li a::after{
     transition: 0.5s;
 }
 
-.sticky-nav ul li a:hover::after{/* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
+.sticky-nav ul li a:hover::after{ /* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
     width: 100%;
-} 
+}  
+
 .sticky-nav li:hover ul#projects-dropdown {
     background-color:#ec9a1f;
     opacity: 1;
@@ -108,7 +109,6 @@ h1 {
 .about-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     overflow-y: auto;
 }
 
@@ -116,6 +116,22 @@ h1 {
 .headshot-page {
     display: flex;
     height: 100vh;
-    justify-content: center;
     align-items: center;
+    z-index: 10;
 }
+
+.headshot-page #first-team-photo {
+    display: flex;
+    width: 45%;
+    height: auto;
+    margin-top: 0%;
+    margin-left: 5%;
+    padding-top: 0.5%;
+    justify-content: flex-start;
+}
+
+.headshot-page .background-headshot {
+    background-color: #090a0e;
+    display: flex;
+}
+

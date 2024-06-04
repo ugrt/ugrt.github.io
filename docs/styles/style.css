@@ -1,3 +1,9 @@
+/* for color constants */
+:root {
+    /* Please note this is not actually blue... */
+    --guelph-blue: #938490;
+}
+
 * {
     margin: 0%;
     padding: 0%;
@@ -144,4 +150,70 @@ h1 {
     background-color: #090a0e;
     display: flex;
     right: 0;
+}
+
+/* Specifically for the grid layout in the projects page */
+#Projects {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /* padding-top: 0.5%; */
+    border-radius: 9%;
+    /* rounded corners */
+    justify-content: flex-start;
+}
+
+.column {
+    flex: 50%;
+    margin-right: 5%;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        margin-right: 5%;
+    }
+}
+
+.row {
+    display: flex;
+    margin-top: 5%;
+}
+
+/* For the fancy overlay thingy */
+#overlay {
+    position: relative;
+    /* Sit on top of the page content */
+
+    width: 80%;
+    /* Full width (cover the whole page) */
+
+    height: 40%;
+    background-color: var(--guelph-blue);
+    color: white;
+    /* Black background with opacity */
+
+    z-index: 2;
+    /* Specify a stack order in case you're using a different order for other elements */
+
+    cursor: pointer;
+    /* Add a pointer on hover */
+
+    margin-left: 2%;
+
+    /* relative position  */
+    bottom: 36%;
+
+    border-radius: 9%;
+    /* rounded corners */
+}
+
+#project-text {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%
 }

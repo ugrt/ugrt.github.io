@@ -127,13 +127,15 @@ h1 {
     height: auto;
     margin-top: 0%;
     margin-left: 5%;
-    padding-top: 0.5%;
+    /* padding-top: 0.5%; */
     justify-content: flex-start;
 }
 
-.img-container {
+.img-container1 {
     background-color: #090a0e;
     display: flex;
-    right: 0;
+    width: 70%;
+    border-radius: 0px 10px 10px 0px;
+    overflow: hidden;
+    clip-path: inset(0 30% 0 0);
 }
-

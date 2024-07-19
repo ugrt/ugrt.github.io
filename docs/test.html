@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test Site</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+    </head>
+    <body>
+    add the following line
+    <py-script>
+    import pandas as pandas
+    import numpy
+
+
+    print('hello')
+
+    def ReadOnboard(OnboardFile, line, cell):
+        Data=pandas.read_excel(OnboardFile,sheet_name='Sheet1',engine='openpyxl')
+        Data=Data.replace(numpy.nan,'End',regex=True)
+        List=Data.values.tolist()
+        return(List[line][cell])
+
+
+    print('hello')
+    print(ReadOnboard('docs\\Book1.xlsx', 1, 2))
+
+    </py-script>
+  </body>
+</html>

@@ -1,8 +1,8 @@
 /* for color constants */
 :root {
     /* Please note this is not actually blue... */
-    --guelph-yellow-transparent: #ffc62a8e;
-    --guelph-yellow-solid: #ffc62
+    --guelph-yellow-transparent: #ffc62ab6;
+    --guelph-yellow-solid: #ffc62a
 }
 
 * {
@@ -194,12 +194,12 @@ h1 {
     /* Full width (cover the whole page) */
 
     height: 40%;
-    background-color: var(--guelph-yellow-transparent);
+    background-color: var(--guelph-yellow-solid);
 
     color: white;
     /* Black background with opacity */
 
-    z-index: 2;
+    z-index: 1;
     /* Specify a stack order in case you're using a different order for other elements */
 
     cursor: pointer;
@@ -214,9 +214,54 @@ h1 {
     /* rounded corners */
 }
 
+/* for fancy overlay but have text not fade... complicated... */
+#txt-overlay {
+    position: relative;
+    /* Sit on top of the page content */
+
+    width: 80%;
+    /* Full width (cover the whole page) */
+
+    height: 40%;
+
+    color: white;
+    /* Black background with opacity */
+
+    z-index: 3;
+    /* Specify a stack order in case you're using a different order for other elements */
+
+    cursor: pointer;
+    /* Add a pointer on hover */
+
+    margin-left: 2%;
+
+    /* relative position  */
+    bottom: 76%;
+
+    border-radius: 9%;
+    /* rounded corners */
+}
+
 #project-text {
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 5%;
     opacity: 1;
+}
+
+.column:hover .image {
+    opacity: 1;
+}
+
+.image {
+    opacity: 0.8;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.noULine {
+    text-decoration-line: none;
 }

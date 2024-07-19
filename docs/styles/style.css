@@ -1,7 +1,8 @@
 /* for color constants */
 :root {
     /* Please note this is not actually blue... */
-    --guelph-blue: #938490;
+    --guelph-yellow-transparent: #ffc62a8e;
+    --guelph-yellow-solid: #ffc62
 }
 
 * {
@@ -193,7 +194,8 @@ h1 {
     /* Full width (cover the whole page) */
 
     height: 40%;
-    background-color: var(--guelph-blue);
+    background-color: var(--guelph-yellow-transparent);
+
     color: white;
     /* Black background with opacity */
 
@@ -215,5 +217,6 @@ h1 {
 #project-text {
     padding-left: 5%;
     padding-right: 5%;
-    padding-top: 5%
+    padding-top: 5%;
+    opacity: 1;
 }

@@ -2,22 +2,17 @@
 <html lang="en">
 
 <head>
-    <title>Projects</title>
+    <title>{{title}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="images\Arm_standalone.png" type="image/x-icon">
-    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <link href= "{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
 </head>
-
-<body> <!-- Anything in body is shown on the page -->
-
-    <!-- The nav menu that links to the js file. 
-    Jank as it gets, but it seems to be working nicely.
-    Open to suggestions!-->
-    <!-- <script src="navmenu.js"></script> -->
-
-    <script type="py">
-    </script>
-
+<body>
+    <script src="styles/Flask-navmenu.js"></script>
+    <h1>{{ title }}</h1>
+    <p> {{littleBlurb}} </p>
+    <p> {{bigBlurb}}</p>
+    <p> To date, the {{littleTitle}} team has placed {{impressiveNumber1}} of material. Made possible by donations like yours!</p>
 </body>
+</html>

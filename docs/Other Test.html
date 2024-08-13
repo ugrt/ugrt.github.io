@@ -9,10 +9,19 @@
     <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
 </head>
 <body>
-    <script src="styles/Flask-navmenu.js"></script>
-    <h1>{{ title }}</h1>
-    <p> {{littleBlurb}} </p>
-    <p> {{bigBlurb}}</p>
-    <p> To date, the {{littleTitle}} team has placed {{impressiveNumber1}} of material. Made possible by donations like yours!</p>
+    <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
+    <center>
+        <h1>{{ title }}</h1>
+    </center>
+    <div class="row">
+        <div class="column" style="margin-left: 6%">
+            <p> {{littleBlurb}} </p>
+            <p> {{bigBlurb}}</p>
+        </div>
+
+        <div class="column">
+            <img id="Projects" src="{{ url_for('static',filename='it in the hall.jpg') }}" alt="">
+        </div>
+    </div>   
 </body>
 </html>

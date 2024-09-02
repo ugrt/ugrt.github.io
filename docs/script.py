@@ -7,7 +7,6 @@ num = 0
 
 @app.route('/')
 def home():
-    
     return render_template('index.html') 
 
 @app.route('/projects')

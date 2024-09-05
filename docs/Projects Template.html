@@ -5,9 +5,10 @@
     <title>{{title}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href= "{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
     <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
 </head>
+
 <body>
     <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
     <center>
@@ -15,13 +16,14 @@
     </center>
     <div class="row">
         <div class="column" style="margin-left: 6%">
-            <p style= "text-align: right"> {{littleBlurb}}
+            <p style="text-align: right"> {{littleBlurb}}
                 {{bigBlurb}}</p>
         </div>
 
         <div class="column">
             <img id="Projects" src="{{ url_for('static',filename='it in the hall.jpg') }}" alt="">
         </div>
-    </div>   
+    </div>
 </body>
+
 </html>

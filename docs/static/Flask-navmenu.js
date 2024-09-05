@@ -1,23 +1,50 @@
 document.write(`
     <nav class="sticky-nav">
-        <a href="index.html">
-            <img id="no-background-team-logo" src="styles/Logo_noBgd.png" />
+        <a href="/">
+            <img id="no-background-team-logo" src="{{ url_for('static',filename='static/Logo_noBgd.png') }}">
         </a>
 
         <ul class="nav-list"> <!-- This is the list of the different pages-->
             <!-- <li><a href="/">Home</a></li> (original home button) -->
-            <li><a href="/">About Us</a></li>
-            <li><a href="/projects">Projects</a>
-                <ul id="projects-dropdown">
-                    <li><a href="/projects/mechanical"></a>Mechanical</a></li>
-                    <li><a href="/projects/electrical"></a>Electrical</a></li>
-                    <li><a href="/projects/programming"></a>Software</a></li>
-                    <li><a href="/"></a>Firmware</a></li>
-                    <li><a href="/"></a>Other</a></li>
-                </ul>
-            </li>
-            <li><a href="/">Sponsors</a></li>
-            <li><a href="/">Contact Us</a></li>
+
+            <div class="dropdown">
+                <li><a href="/about-us">About Us</a></li>
+
+                <!--
+                <div class="dropdown-content">
+                    <a href="/">Opportunities</a>
+                </div>
+                -->
+                
+            </div>
+
+            <div class="dropdown">
+                <li><a href="/projects">Projects</a></li>
+                <div class="dropdown-content">
+                    <a href="projects/electrical">Electrical</a>
+                    <a href="projects/mechanical">Mechanical</a>
+                    <a href="projects/programming">Programming</a>
+                    <a href="projects/marketing">Marketing</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <li><a href="/">Sponsors</a></li>
+                <div class="dropdown-content">
+                    <a href="/">Opportunities</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <li><a href="/">Contact Us</a></li>
+
+                <!--
+                <div class="dropdown-content">
+                    <a href="/">Opportunities</a>
+                </div>
+                -->
+
+            </div>
         </ul>
     </nav>
 `);

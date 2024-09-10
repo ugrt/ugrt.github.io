@@ -104,7 +104,7 @@ body {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: table-column;
     margin-top: 18px;
 }
 
@@ -157,7 +157,7 @@ ul li a::after {
 
 /*Header Styles*/
 h1 {
-    background-image: url("images/2022 Competition/the fire one.jpg");
+    /* background-image: url("images/2022 Competition/the fire one.jpg"); */
     font-size: 9em;
     text-align: center;
     padding: 6%;
@@ -202,13 +202,14 @@ h1 {
 /* Specifically for the grid layout in the projects page */
 #Projects {
     display: flex;
-    width: 100%;
+    width: 80%;
     height: auto;
     margin-top: 0%;
-    margin-bottom: 0%;
+    margin-bottom: -20%;
     margin-left: 5%;
     margin-right: 5%;
     /* padding-top: 0.5%; */
+    padding-right: 0%;
     border-radius: 9%;
     /* rounded corners */
     justify-content: flex-start;
@@ -219,7 +220,7 @@ h1 {
     margin-right: 5%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     .column {
         width: 100%;
         margin-right: 5%;
@@ -236,7 +237,7 @@ h1 {
     position: relative;
     /* Sit on top of the page content */
 
-    width: 80%;
+    width: 60%;
     /* Full width (cover the whole page) */
 
     height: 40%;
@@ -254,7 +255,7 @@ h1 {
     margin-left: 2%;
 
     /* relative position  */
-    bottom: 36%;
+    bottom: 0%;
 
     border-radius: 9%;
     /* rounded corners */
@@ -265,10 +266,10 @@ h1 {
     position: relative;
     /* Sit on top of the page content */
 
-    width: 80%;
+    width: 60%;
     /* Full width (cover the whole page) */
 
-    height: 40%;
+    height: flex;
 
     color: white;
     /* Black background with opacity */
@@ -282,9 +283,9 @@ h1 {
     margin-left: 2%;
 
     /* relative position  */
-    bottom: 76%;
+    bottom: 40%;
 
-    border-radius: 9%;
+    border-radius: 14%;
     /* rounded corners */
 }
 

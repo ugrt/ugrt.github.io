@@ -5,7 +5,7 @@
     <title>{{title}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href= "{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
     <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
 </head>
 
@@ -24,18 +24,17 @@
     <!-- Row one -->
     <div class="row">
         <div class="column">
-            <!-- Electrical Stuff -->
+            <!-- Mechanical Stuff -->
             <a href="/projects/electrical" class="noULine">
                 <img id="Projects" src="{{ url_for('static',filename='it in the hall.jpg') }}">
-
                 <div id="overlay" class="image"></div>
                 <div id="txt-overlay">
                     <h3 id="project-text">Electrical Team</h3>
-                    <p id="project-text">{{electricalBlurb}}
-                    </p>
+                    <p id="project-text">{{electricalBlurb}}</p>
                 </div>
             </a>
         </div>
+
 
         <div class="column">
             <!-- Mechanical Stuff -->
@@ -69,7 +68,7 @@
             <!-- Marketing Stuff -->
             <a href="/projects/marketing-team" class="noULine">
                 <img id="Projects" src="{{ url_for('static',filename='it in the hall.jpg') }}">
-                <div id="overlay" class="image"></div> 
+                <div id="overlay" class="image"></div>
                 <div id="txt-overlay">
                     <h3 id="project-text">Marketing Team</h3>
                     <p id="project-text">{{businessBlurb}}</p>
@@ -77,6 +76,7 @@
             </a>
         </div>
     </div>
+
 </body>
 
 </html>

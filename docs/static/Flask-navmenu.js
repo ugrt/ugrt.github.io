@@ -1,7 +1,7 @@
 document.write(`
     <nav class="sticky-nav">
         <a href="/">
-            <img id="no-background-team-logo" src="{{ url_for('static',filename='static/Logo_noBgd.png') }}">
+            <img id="no-background-team-logo" src="{{url_for('static',filename='images\\StellaDoingElectricalThings.jpg')}}">
         </a>
 
         <ul class="nav-list"> <!-- This is the list of the different pages-->
@@ -21,15 +21,15 @@ document.write(`
             <div class="dropdown">
                 <li><a href="/projects">Projects</a></li>
                 <div class="dropdown-content">
-                    <a href="projects/electrical">Electrical</a>
-                    <a href="projects/mechanical">Mechanical</a>
-                    <a href="projects/programming">Programming</a>
-                    <a href="projects/marketing">Marketing</a>
+                    <a href="/projects/electrical">Electrical</a>
+                    <a href="/projects/mechanical">Mechanical</a>
+                    <a href="/projects/programming">Programming</a>
+                    <a href="/projects/marketing">Marketing</a>
                 </div>
             </div>
 
             <div class="dropdown">
-                <li><a href="/">Sponsors</a></li>
+                <li><a href="/">Sponsorships</a></li>
                 <div class="dropdown-content">
                     <a href="/">Opportunities</a>
                 </div>

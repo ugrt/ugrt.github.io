@@ -115,6 +115,16 @@ def marketing():
 def about():
     return render_template('about-us.html')
        
+@app.route('/sponsorship')
+def sponsorship():
+    return render_template('about-us.html')
+       
+@app.route('/contact-us')
+def contact():
+    return render_template('about-us.html')
+       
 
+    
+    
 if __name__ == '__main__':
     app.run()

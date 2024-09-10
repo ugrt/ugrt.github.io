@@ -11,7 +11,7 @@
 
 <body>
 
-    <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
+    <script src="{{url_for('static',filename='Flask-navmenu.js')}}"></script>
 
     <!-- so the goal at the moment is to make some flex containers that fill the screen -->
 
@@ -19,7 +19,7 @@
         <div class="headshot-page">
 
             <div class="img-container">
-                <img id="first-team-photo" src="images/2022 Competition/it in the hall.jpg">
+                <img id="first-team-photo" src="{{ url_for('static',filename='static/it in the hall.jpg') }}">
             </div>
 
             <div class="content-section">

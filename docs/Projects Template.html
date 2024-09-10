@@ -10,14 +10,15 @@
 </head>
 
 <body>
-    <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
+    <script src="{{url_for('static',filename='Flask-navmenu.js') }}"></script>
     <center>
         <h1>{{ title }}</h1>
     </center>
     <div class="row">
         <div class="column" style="margin-left: 6%">
-            <p style="text-align: right"> {{littleBlurb}}
-                {{bigBlurb}}</p>
+            <p style="text-align: right"> {{littleBlurb}} </p>
+            <p>{{bigBlurb}}</p>
+            <p>{{littleTitle}}</p>
         </div>
 
         <div class="column">

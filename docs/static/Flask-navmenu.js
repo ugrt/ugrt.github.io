@@ -1,7 +1,8 @@
+
 document.write(`
     <nav class="sticky-nav">
         <a href="/">
-            <img id="no-background-team-logo" src="{{url_for('static',filename='images\\StellaDoingElectricalThings.jpg')}}">
+            <img id="no-background-team-logo" src="\\static\\images\\Logo_noBgd.png">
         </a>
 
         <ul class="nav-list"> <!-- This is the list of the different pages-->

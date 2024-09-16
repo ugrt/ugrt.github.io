@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
+</head>
+
+<body> <!-- Anything in body is shown on the page -->
+
+    <!-- The nav menu that links to the js file. 
+    Jank as it gets, but it seems to be working nicely.
+    Open to suggestions!-->
+    <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
+
+
+    <h1 style="text-align: center;">Projects</h1>
+
+    <p style="text-align: center;">Please feel free to click on the projects below to take a closer look.</p>
+
+    <!-- Row one -->
+    <div class="row">
+        <div class="column">
+            <!-- Mechanical Stuff -->
+            <a href="/projects/electrical" class="noULine">
+                <img id="Projects" src="{{ url_for('static',filename='images/StellaDoingElectricalThings.jpg') }}">
+                <div id="overlay" class="image"></div>
+                    <div id="txt-overlay">                    
+                        <h3 id="project-text">Electrical Team</h3>
+                        <p id="project-text">{{electricalBlurb}}</p>
+                    </div>
+                
+            </a>
+        </div>
+
+
+        <div class="column">
+            <!-- Mechanical Stuff -->
+            <a href="/projects/mechanical" class="noULine">
+                <img id="Projects" src="{{ url_for('static',filename='images/it in the hall.jpg') }}">
+                <div id="overlay" class="image"></div>
+                <div id="txt-overlay">
+                    <h3 id="project-text">Mechanical Team</h3>
+                    <p id="project-text">{{mechanicalBlurb}}</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Row two -->
+    <div class="row">
+        <div class="column">
+            <!-- Programming Stuff -->
+            <a href="/projects/programming" class="noULine">
+                <img id="Projects" src="{{ url_for('static',filename='images/it in the hall.jpg') }}">
+                <div id="overlay" class="image"></div>
+                <div id="txt-overlay">
+                    <h3 id="project-text">Programming Team</h3>
+                    <p id="project-text">{{programmingBlurb}}</p>
+                </div>
+            </a>
+        </div>
+        <div class="column">
+            <!-- Marketing Stuff -->
+            <a href="/projects/marketing-team" class="noULine">
+                <img id="Projects" src="{{ url_for('static',filename='images/it in the hall.jpg') }}">
+                <div id="overlay" class="image"></div>
+                <div id="txt-overlay">
+                    <h3 id="project-text">Marketing Team</h3>
+                    <p id="project-text">{{businessBlurb}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

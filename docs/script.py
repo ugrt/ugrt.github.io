@@ -4,6 +4,7 @@ import numpy
 
 app = Flask('testapp', template_folder='docs', static_folder='docs\static')
 num = 0
+sheet = ""
 excelPath = 'docs\\Projects-Information.xlsx' #This allows us to change the path of the excel if we need to
 
 # For this we can easily add more functions. This method simplifies the url and removes the html tag at the end (I personally hate it)
@@ -16,7 +17,7 @@ def home():
 def projects():
 
     def ReadOnboard(OnboardFile, line, cell):
-        Data=pandas.read_excel(OnboardFile,sheet_name='Sheet1',engine='openpyxl')
+        Data=pandas.read_excel(OnboardFile,sheet_name='Projects',engine='openpyxl')
         Data=Data.replace(numpy.nan,'End',regex=True)
         List=Data.values.tolist()
         return(List[line][cell])
@@ -44,7 +45,7 @@ def electrical():
     num = 0
 
     def ReadOnboard(OnboardFile, line, cell):
-        Data=pandas.read_excel(OnboardFile,sheet_name='Sheet1',engine='openpyxl')
+        Data=pandas.read_excel(OnboardFile,sheet_name='Projects',engine='openpyxl')
         Data=Data.replace(numpy.nan,'End',regex=True)
         List=Data.values.tolist()
         return(List[line][cell])
@@ -62,7 +63,7 @@ def mechanical():
     num = 1
 
     def ReadOnboard(OnboardFile, line, cell):
-        Data=pandas.read_excel(OnboardFile,sheet_name='Sheet1',engine='openpyxl')
+        Data=pandas.read_excel(OnboardFile,sheet_name='Projects',engine='openpyxl')
         Data=Data.replace(numpy.nan,'End',regex=True)
         List=Data.values.tolist()
         return(List[line][cell])
@@ -80,7 +81,7 @@ def programming():
     num = 2
 
     def ReadOnboard(OnboardFile, line, cell):
-        Data=pandas.read_excel(OnboardFile,sheet_name='Sheet1',engine='openpyxl')
+        Data=pandas.read_excel(OnboardFile,sheet_name='Projects',engine='openpyxl')
         Data=Data.replace(numpy.nan,'End',regex=True)
         List=Data.values.tolist()
         return(List[line][cell])
@@ -96,9 +97,10 @@ def programming():
 @app.route('/projects/marketing')
 def marketing():
     num = 3
+    sheet = "Projects"
 
     def ReadOnboard(OnboardFile, line, cell):
-        Data=pandas.read_excel(OnboardFile,sheet_name='Sheet1',engine='openpyxl')
+        Data=pandas.read_excel(OnboardFile,sheet_name='Projects',engine='openpyxl')
         Data=Data.replace(numpy.nan,'End',regex=True)
         List=Data.values.tolist()
         return(List[line][cell])

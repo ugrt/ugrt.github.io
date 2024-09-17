@@ -11,20 +11,25 @@ excelPath = 'docs\\Projects-Information.xlsx'
 
 # For this we can easily add more functions. This method simplifies the url and removes the html tag at the end (I personally hate it)
 
-def ReadOnboard(OnboardFile, line, cell, sheet):
+# The below function is the code used to read an individual cell from the excel sheet
+# the variables are self explanitory. Sheet, line, and row are the only variables that are changed with different uses of the function
+# OnboardFile does not change 
+def ReadOnboard(OnboardFile, line, row, sheet):
         Data=pandas.read_excel(OnboardFile,sheet_name=sheet,engine='openpyxl')
         Data=Data.replace(numpy.nan,'End',regex=True)
         List=Data.values.tolist()
-        return(List[line][cell])
+        return(List[line][row])
 
-@app.route('/')
+@app.route('/') # This is the URL and function that renders the home page
 def home():
     return render_template('index.html') 
 
-@app.route('/projects')
+@app.route('/projects') # This is the URL and function that renders the projects grid
 def projects():
     sheetName = 'Projects'
-
+    
+    # The below lines call the global function at the top of the page and 
+    # and are pin pointed to specific cells in the excel sheet
     electricalBlurb = ReadOnboard(excelPath, 0, 2, sheetName)
     electricalImage=ReadOnboard(excelPath, 0, 4, sheetName)
     mechanicalBlurb = ReadOnboard(excelPath, 1, 2, sheetName)
@@ -34,6 +39,7 @@ def projects():
     businessBlurb = ReadOnboard(excelPath, 3, 2, sheetName)
     businessImage = ReadOnboard(excelPath, 3, 4, sheetName)
     
+    # This renders the html page in question and passes the above variables into the page. There are tags on the page that match the variables. This is where the variables are printed
     return render_template('projects-grid.html', electricalBlurb=electricalBlurb, 
     electricalImage=electricalImage,
                            mechanicalBlurb=mechanicalBlurb, 
@@ -45,6 +51,9 @@ def projects():
 
 @app.route('/projects/electrical')
 def electrical():
+    
+    # This is important as num changes the line in which the information is pulled.
+    # sheetName is going to change to organize the excel better. The string is the name of the sheet being called.
     num = 0
     sheetName = 'Projects'
     
@@ -56,8 +65,11 @@ def electrical():
     
     return render_template('Projects Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, impressiveNumber1=impressiveNumber1)  
 
-@app.route('/projects/electrical/<name>', methods=['GET', 'POST'])
+# This is something I'm testing with dynamic URLs. The name is passed through the url_for() fn and is used in the route of the fn. 
+@app.route('/projects/electrical/<name>')
 def electricalProjects(name):
+    
+    #
     num=1
     sheetName = 'Projects'
     title = "This is a test"

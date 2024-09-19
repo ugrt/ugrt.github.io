@@ -1,9 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template, request
 import pandas as pandas
 import numpy
 
 app = Flask('testapp', template_folder='docs', static_folder='docs\static')
-num = 0
 sheetName = ""
 excelPath = 'docs\\Projects-Information.xlsx' 
 
@@ -14,12 +13,32 @@ excelPath = 'docs\\Projects-Information.xlsx'
 # The below function is the code used to read an individual cell from the excel sheet
 # the variables are self explanitory. Sheet, line, and row are the only variables that are changed with different uses of the function
 # OnboardFile does not change 
-def ReadOnboard(OnboardFile, line, row, sheet):
-        Data=pandas.read_excel(OnboardFile,sheet_name=sheet,engine='openpyxl')
-        Data=Data.replace(numpy.nan,'End',regex=True)
-        List=Data.values.tolist()
-        return(List[line][row])
-
+def ReadOnboard(OnboardFile, row, col, sheet):
+            Data=pandas.read_excel(OnboardFile,sheet_name=sheet,engine='openpyxl')
+            Data=Data.replace(numpy.nan,'End',regex=True)
+            List=Data.values.tolist()
+            return(List[row][col])
+        
+# This class was created to allow for variables to be collected from the webpage and shared with the appropriate web page to be. 
+# https://stackoverflow.com/questions/2894946/passing-javascript-variable-to-python
+class MyClass:
+    num = 2
+    
+    @app.route('/process', methods=['POST'])
+    def process():
+        data = request.get_json() # retrieve the data sent from JavaScript
+        # process the data using Python code
+        result = data['value']
+        # print(result)
+        MyClass.num = result
+        # print ("This is num")
+        # print(MyClass.num)
+        return jsonify(result=result) # return the result to JavaScript
+    
+    # This function is used to return the variable that is used to pick pages
+    def get_var():
+        return MyClass.num
+    
 @app.route('/') # This is the URL and function that renders the home page
 def home():
     return render_template('index.html') 
@@ -51,7 +70,6 @@ def projects():
 
 @app.route('/projects/electrical')
 def electrical():
-    
     # This is important as num changes the line in which the information is pulled.
     # sheetName is going to change to organize the excel better. The string is the name of the sheet being called.
     num = 0
@@ -68,13 +86,11 @@ def electrical():
 # This is something I'm testing with dynamic URLs. The name is passed through the url_for() fn and is used in the route of the fn. 
 @app.route('/projects/electrical/<name>')
 def electricalProjects(name):
+    # This section is going to handle the electrical projects as they change
+    num = MyClass.get_var() #
+    sheetName = 'Electrical'
     
-    #
-    num=1
-    sheetName = 'Projects'
-    title = "This is a test"
-    
-    # title = ReadOnboard(excelPath, num, 0, sheetName)
+    title = ReadOnboard(excelPath, num, 0, sheetName)
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
@@ -82,6 +98,7 @@ def electricalProjects(name):
     
     return render_template('Projects Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, impressiveNumber1=impressiveNumber1)  
 
+# The remaining functions do the exact same things except the row changes based on the project
 @app.route('/projects/mechanical')
 def mechanical():
     num = 1

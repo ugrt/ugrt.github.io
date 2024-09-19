@@ -7,11 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
     <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- above is the info for the page. Feel Free to Copy and past. You might need to change the title portion if the page doesn't need flask -->
 </head>
 
 <body>
+    <!-- This is how you call files using flask and html -->
     <script src="{{url_for('static',filename='Flask-navmenu.js') }}"></script>
     <center>
+        <!-- These are what the variables look like -->
         <h1>{{ title }}</h1>
     </center>
     <div class="row">
@@ -20,8 +25,29 @@
             <p>{{bigBlurb}}</p>
             <p>{{littleTitle}}</p>
         </div>
+        <!-- I'm testing this section -->
+        <!-- Make a fake href to pass the variable into a second function then  -->
+        <a href="{{ url_for('electricalProjects', name='{{Project1}}') }}" onclick="sendData(0)">Project 1 Link</a>
+        <a href="{{ url_for('electricalProjects', name='Project2') }}" onclick="sendData(1)">Project 2 Link</a>
+        <a href="{{ url_for('electricalProjects', name='Project3') }}" onclick="sendData(2)">Project 3 Link</a>
 
-        <a href="{{ url_for('electricalProjects', name='hello') }}">fancy thing I'm testing</a>
+        <script>
+            function sendData(num) {
+                var value = num;
+                $.ajax({
+                    url: '/process',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ 'value': value }),
+                    success: function (response) {
+                        //document.getElementById('output').innerHTML = response.result;
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+        </script>
 
         <div class="column">
             <img id="Projects" src="{{ url_for('static',filename='it in the hall.jpg') }}" alt="">

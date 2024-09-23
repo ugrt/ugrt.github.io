@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
     <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
+    <!-- This is some script the website told me to add... -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- above is the info for the page. Feel Free to Copy and past. You might need to change the title portion if the page doesn't need flask -->
@@ -24,13 +25,17 @@
             <p style="text-align: right"> {{littleBlurb}} </p>
             <p>{{bigBlurb}}</p>
             <p>{{littleTitle}}</p>
-        </div>
-        <!-- I'm testing this section -->
-        <!-- Add something here that makes it only need one page. -->
-        <a href="{{ url_for('electricalProjects', name='{{Project1}}') }}" onclick="sendData(0)">Project 1 Link</a>
-        <a href="{{ url_for('electricalProjects', name='Project2') }}" onclick="sendData(1)">Project 2 Link</a>
-        <a href="{{ url_for('electricalProjects', name='Project3') }}" onclick="sendData(2)">Project 3 Link</a>
 
+            <!-- I'm testing this section -->
+            <!-- Add something here that makes it only need one page. -->
+            <!-- {{ url_for("python function being called", "url ending" )}} -->
+            <a href="{{ url_for(subpageFn, name=electricalProj1) }}" onclick="sendData(0)">Project 1 Link</a>
+            <a href="{{ url_for(subpageFn, name=electricalProj2) }}" onclick="sendData(1)">Project 2 Link</a>
+            <a href="{{ url_for(subpageFn, name=electricalProj3) }}" onclick="sendData(2)">Project 3 Link</a>
+            <a href="{{ url_for(subpageFn, name=electricalProj4) }}" onclick="sendData(3)">Project 4 Link</a>
+            <a href="{{ url_for(subpageFn, name=electricalProj5) }}" onclick="sendData(4)">Project 5 Link</a>
+            <a href="{{ url_for(subpageFn, name=electricalProj6) }}" onclick="sendData(5)">Project 6 Link</a>
+        </div>
         <script>
             function sendData(num) {
                 var value = num;
@@ -50,7 +55,7 @@
         </script>
 
         <div class="column">
-            <img id="Projects" src="{{ url_for('static',filename='it in the hall.jpg') }}" alt="">
+            <img id="Projects" src="{{ url_for('static',filename=imgPath) }}" alt="">
         </div>
     </div>
 </body>

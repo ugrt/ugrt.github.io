@@ -43,7 +43,7 @@ class MyClass:
 def home():
     return render_template('index.html') 
 
-@app.route('/projects') # This is the URL and function that renders the projects grid
+@app.route('/subteams') # This is the URL and function that renders the projects grid
 def projects():
     sheetName = 'Projects'
     
@@ -59,7 +59,7 @@ def projects():
     businessImage = ReadOnboard(excelPath, 3, 4, sheetName)
     
     # This renders the html page in question and passes the above variables into the page. There are tags on the page that match the variables. This is where the variables are printed
-    return render_template('projects-grid.html', electricalBlurb=electricalBlurb, 
+    return render_template('subteam-grid.html', electricalBlurb=electricalBlurb, 
     electricalImage=electricalImage,
                            mechanicalBlurb=mechanicalBlurb, 
                            mechanicalImage=mechanicalImage,
@@ -68,7 +68,7 @@ def projects():
                            businessBlurb=businessBlurb,
                            businessImage=businessImage)  
 
-@app.route('/projects/electrical')
+@app.route('/subteams/electrical')
 def electrical():
     # This is important as num changes the line in which the information is pulled.
     # sheetName is going to change to organize the excel better. The string is the name of the sheet being called.
@@ -79,13 +79,27 @@ def electrical():
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    impressiveNumber1 = ReadOnboard(excelPath, num, 4, sheetName)
+    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
+    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
     
-    return render_template('Projects Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, impressiveNumber1=impressiveNumber1)  
+    # This changes the sheet mid function to take the titles from the projects
+    sheetName='Electrical'
+    
+    # This specifically pulls the title in lowercase form. 
+    # We might change it so that it pulls something different then based on something else does something else, but for now this is what it does.
+    electricalProj1 = ReadOnboard(excelPath, 0, 1, sheetName)
+    electricalProj2 = ReadOnboard(excelPath, 1, 1, sheetName)
+    electricalProj3 = ReadOnboard(excelPath, 2, 1, sheetName)
+    electricalProj4 = ReadOnboard(excelPath, 3, 1, sheetName)
+    electricalProj5 = ReadOnboard(excelPath, 4, 1, sheetName)
+    electricalProj6 = ReadOnboard(excelPath, 5, 1, sheetName)
+    
+    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath, electricalProj1=electricalProj1, electricalProj2=electricalProj2, electricalProj3=electricalProj3, electricalProj4=electricalProj4, electricalProj5=electricalProj5, electricalProj6=electricalProj6, subpageFn=subpageFn)  
 
 # This is something I'm testing with dynamic URLs. The name is passed through the url_for() fn and is used in the route of the fn. 
-@app.route('/projects/electrical/<name>')
+@app.route('/subteams/electrical/<name>')
 def electricalProjects(name):
+    
     # This section is going to handle the electrical projects as they change
     num = MyClass.get_var() #
     sheetName = 'Electrical'
@@ -94,12 +108,12 @@ def electricalProjects(name):
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    impressiveNumber1 = ReadOnboard(excelPath, num, 4, sheetName)
+    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
     
-    return render_template('Projects Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, impressiveNumber1=impressiveNumber1)  
+    return render_template('Project-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
 
 # The remaining functions do the exact same things except the row changes based on the project
-@app.route('/projects/mechanical')
+@app.route('/subteams/mechanical')
 def mechanical():
     num = 1
     sheetName = 'Projects'
@@ -108,11 +122,12 @@ def mechanical():
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    impressiveNumber1 = ReadOnboard(excelPath, num, 4, sheetName)
+    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
+    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
     
-    return render_template('Projects Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, impressiveNumber1=impressiveNumber1)  
+    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
 
-@app.route('/projects/programming')
+@app.route('/subteams/programming')
 def programming():
     num = 2
     sheetName = 'Projects'
@@ -121,11 +136,12 @@ def programming():
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    impressiveNumber1 = ReadOnboard(excelPath, num, 4, sheetName)
+    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
+    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
     
-    return render_template('Projects Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, impressiveNumber1=impressiveNumber1)  
+    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
 
-@app.route('/projects/marketing')
+@app.route('/subteams/marketing')
 def marketing():
     num = 3
     sheetName = 'Projects'
@@ -134,9 +150,10 @@ def marketing():
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    impressiveNumber1 = ReadOnboard(excelPath, num, 4, sheetName)
+    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
+    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
     
-    return render_template('Projects Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, impressiveNumber1=impressiveNumber1)  
+    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
 
 @app.route('/about-us')
 def about():

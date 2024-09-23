@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This code hasn't been edited. Not finalized. -->
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
+</head>
+
+<body> <!-- Anything in body is shown on the page -->
+
+    <!-- The nav menu that links to the js file. 
+    Jank as it gets, but it seems to be working nicely.
+    Open to suggestions!-->
+    <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
+
+
+    <h1 style="text-align: center;">{{title}}</h1>
+
+    <p style="text-align: center;">{{littleBlurb}}</p>
+
+</body>
+
+</html>

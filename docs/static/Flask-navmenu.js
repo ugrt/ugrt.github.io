@@ -20,12 +20,12 @@ document.write(`
             </div>
 
             <div class="dropdown">
-                <li><a href="/projects">Projects</a></li>
+                <li><a href="/subteams">Subteams</a></li>
                 <div class="dropdown-content">
-                    <a href="/projects/electrical">Electrical</a>
-                    <a href="/projects/mechanical">Mechanical</a>
-                    <a href="/projects/programming">Programming</a>
-                    <a href="/projects/marketing">Marketing</a>
+                    <a href="/subteams/electrical">Electrical</a>
+                    <a href="/subteams/mechanical">Mechanical</a>
+                    <a href="/subteams/programming">Programming</a>
+                    <a href="/subteams/marketing">Marketing</a>
                 </div>
             </div>
 

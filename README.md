@@ -6,7 +6,7 @@ Front End Devs.
 
 
 Back End Devs. 
-
+     ---
 - comb through the site and try to understand the logic. Because of the way it's designed, this requires a lot (and I mean a lot) of tracing and thinking to set up. 
 - Because the Excel is part of Back End, we are responsible for maintaining it and coordinating where everything is pulled from. REMEMBER if you shift or insert rows/columns, it messes with the counting of the variables. If you need to add more information to be pulled into the templates, try to add it to the end of the rows/columns
 - For much of this, we will do things on a need to do basis (as Front End/Execs say they would like information displayed)

@@ -13,7 +13,16 @@
 <body>
 
     <!-- Stella, would you mind? -->
-    <script src="{{url_for('static',filename='Flask-navmenu.js')}}"></script>
+    <!-- <script src="{{url_for('static',filename='Flask-navmenu.js')}}"></script> -->
+    <script src="{{url_for('static',filename='includeHTML.js')}}">
+
+    </script>
+
+    <div include-html="{{url_for('static',filename='header.html')}}"></div>
+
+    <script>
+        includeHTML();
+    </script>
 
     <!-- so the goal at the moment is to make some flex containers that fill the screen -->
 

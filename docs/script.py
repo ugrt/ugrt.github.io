@@ -14,10 +14,10 @@ excelPath = 'docs\\Projects-Information.xlsx'
 # the variables are self explanitory. Sheet, line, and row are the only variables that are changed with different uses of the function
 # OnboardFile does not change 
 def ReadOnboard(OnboardFile, row, col, sheet):
-            Data=pandas.read_excel(OnboardFile,sheet_name=sheet,engine='openpyxl')
-            Data=Data.replace(numpy.nan,'End',regex=True)
-            List=Data.values.tolist()
-            return(List[row][col])
+    Data=pandas.read_excel(OnboardFile,sheet_name=sheet,engine='openpyxl')
+    Data=Data.replace(numpy.nan,'End',regex=True)
+    List=Data.values.tolist()
+    return(List[row][col])
         
 # This class was created to allow for variables to be collected from the webpage and shared with the appropriate web page to be. 
 # https://stackoverflow.com/questions/2894946/passing-javascript-variable-to-python
@@ -79,22 +79,36 @@ def electrical():
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
-    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
+    bigBlurb2= ReadOnboard(excelPath, num, 4, sheetName)
+    imgPath = ReadOnboard(excelPath, num, 5, sheetName)
+    subpageFn = ReadOnboard(excelPath, num, 6, sheetName)
     
     # This changes the sheet mid function to take the titles from the projects
     sheetName='Electrical'
     
     # This specifically pulls the title in lowercase form. 
     # We might change it so that it pulls something different then based on something else does something else, but for now this is what it does.
-    electricalProj1 = ReadOnboard(excelPath, 0, 1, sheetName)
-    electricalProj2 = ReadOnboard(excelPath, 1, 1, sheetName)
-    electricalProj3 = ReadOnboard(excelPath, 2, 1, sheetName)
-    electricalProj4 = ReadOnboard(excelPath, 3, 1, sheetName)
-    electricalProj5 = ReadOnboard(excelPath, 4, 1, sheetName)
-    electricalProj6 = ReadOnboard(excelPath, 5, 1, sheetName)
+    proj1 = ReadOnboard(excelPath, 0, 1, sheetName)
+    proj1SmallBlurb = ReadOnboard(excelPath, 0, 2, sheetName)
+    proj2 = ReadOnboard(excelPath, 1, 1, sheetName)
+    proj2SmallBlurb = ReadOnboard(excelPath, 1, 2, sheetName)
+    proj3 = ReadOnboard(excelPath, 2, 1, sheetName)
+    proj3SmallBlurb = ReadOnboard(excelPath, 2, 2, sheetName)
+    proj4 = ReadOnboard(excelPath, 3, 1, sheetName)
+    proj4SmallBlurb = ReadOnboard(excelPath, 3, 2, sheetName)
+    proj5 = ReadOnboard(excelPath, 4, 1, sheetName)
+    proj5SmallBlurb = ReadOnboard(excelPath, 4, 2, sheetName)
+    proj6 = ReadOnboard(excelPath, 5, 1, sheetName)
+    proj6SmallBlurb = ReadOnboard(excelPath, 5, 2, sheetName)
     
-    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath, electricalProj1=electricalProj1, electricalProj2=electricalProj2, electricalProj3=electricalProj3, electricalProj4=electricalProj4, electricalProj5=electricalProj5, electricalProj6=electricalProj6, subpageFn=subpageFn)  
+    return render_template('Subteam-Template.html', 
+                           title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, bigBlurb2=bigBlurb2, imgPath=imgPath, subpageFn=subpageFn,
+                           proj1=proj1, proj1SmallBlurb=proj1SmallBlurb,
+                           proj2=proj2, proj2SmallBlurb=proj2SmallBlurb,
+                           proj3=proj3, proj3SmallBlurb=proj3SmallBlurb,
+                           proj4=proj4, proj4SmallBlurb=proj4SmallBlurb,
+                           proj5=proj5, proj5SmallBlurb=proj5SmallBlurb,
+                           proj6=proj6, proj6SmallBlurb=proj6SmallBlurb)  
 
 # This is something I'm testing with dynamic URLs. The name is passed through the url_for() fn and is used in the route of the fn. 
 @app.route('/subteams/electrical/<name>')
@@ -108,52 +122,18 @@ def electricalProjects(name):
     littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
     littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
     bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
+    bigBlurb2= ReadOnboard(excelPath, num, 4, sheetName)
+    imgPath = ReadOnboard(excelPath, num, 5, sheetName)
     
-    return render_template('Project-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
+    return render_template('Project-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath, bigBlurb2=bigBlurb2)  
 
 # The remaining functions do the exact same things except the row changes based on the project
-@app.route('/subteams/mechanical')
-def mechanical():
-    num = 1
-    sheetName = 'Projects'
-    
-    title = ReadOnboard(excelPath, num, 0, sheetName)
-    littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
-    littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
-    bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
-    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
-    
-    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
 
-@app.route('/subteams/programming')
-def programming():
-    num = 2
-    sheetName = 'Projects'
-    
-    title = ReadOnboard(excelPath, num, 0, sheetName)
-    littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
-    littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
-    bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
-    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
-    
-    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
+# @app.route('/subteams/mechanical') Mechanical num=1
 
-@app.route('/subteams/marketing')
-def marketing():
-    num = 3
-    sheetName = 'Projects'
-    
-    title = ReadOnboard(excelPath, num, 0, sheetName)
-    littleTitle = ReadOnboard(excelPath, num, 1, sheetName)
-    littleBlurb = ReadOnboard(excelPath, num, 2, sheetName)
-    bigBlurb = ReadOnboard(excelPath, num, 3, sheetName)
-    imgPath = ReadOnboard(excelPath, num, 4, sheetName)
-    subpageFn = ReadOnboard(excelPath, num, 5, sheetName)
-    
-    return render_template('Subteam-Template.html', title=title, littleTitle = littleTitle, littleBlurb=littleBlurb, bigBlurb=bigBlurb, imgPath=imgPath)  
+# @app.route('/subteams/programming') Programming num=2
+
+# @app.route('/subteams/marketing') Marketing num=3
 
 @app.route('/about-us')
 def about():
@@ -167,8 +147,5 @@ def sponsorship():
 def contact():
     return render_template('about-us.html')
        
-
-    
-    
 if __name__ == '__main__':
     app.run()

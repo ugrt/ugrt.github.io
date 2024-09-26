@@ -1,3 +1,5 @@
+<!-- This is the home page of the website. Honestly, I think this page might require the most pulling of information as this is going to feature the upto date information and link to all the other pages. As of right now, it just has a photo of Stella doing electrical things with some text to put our name. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,22 +7,25 @@
     <title>UGRT Home Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
     <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
+    <!-- This is some script the website told me to add... -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- above is the info for the page. Feel Free to Copy and past. You might need to change the title portion if the page doesn't need flask -->
 </head>
 
 <body> <!-- Anything in body is shown on the page -->
 
-    <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
+    <script src="{{url_for('static',filename='includeHTML.js')}}"></script>
 
-    <!-- <h1 class="intro">
-        <centre>
-            <span class="opener">Guelph</span>
-            <br>
-            <span class="opener">Robotics</span>
-        </centre>
-    </h1> -->
+    <div include-html="{{url_for('static',filename='header.html')}}"></div>
+    <script>
+        // This might have to move to the bottom of the page when we add a footer.
+        includeHTML();
+    </script>
 
+    <!-- This is the code that allows us to have the overlay with the txt. -->
     <div class="index-container">
         <img src="{{ url_for('static',filename='images/StellaDoingElectricalThings.jpg') }}" class="index-image">
 

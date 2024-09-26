@@ -1,4 +1,16 @@
 // Src: https://www.w3schools.com/howto/howto_html_include.asp
+// This code will allow us to import HTML files that are used across multiple pages
+// It means we can change them in one file as opposed to 12+
+
+
+// How to use
+// <script src="{{url_for('static',filename='includeHTML.js')}}"></script>
+
+//    <div include-html="{{url_for('static',filename= 'FILE NAME IN SINGLE QUOTES' )}}"></div>
+//    <script>
+//        includeHTML();
+//    </script>
+
 
 function includeHTML() {
     var z, i, elmnt, file, xhttp;

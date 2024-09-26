@@ -1,3 +1,5 @@
+<!-- This is the template for each subteam. When we click on a link, the information is pulled from the excel and displayed in the tags below. The tags have the exact names as in the excel. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +16,14 @@
 </head>
 
 <body>
-    <!-- This is how you call files using flask and html -->
-    <script src="{{url_for('static',filename='test.html') }}"></script>
+    <!-- This is how you call files using flask and html. static is the file folder while filename is everything after the static folder -->
+    <script src="{{url_for('static',filename='includeHTML.js')}}"></script>
+
+    <div include-html="{{url_for('static',filename='header.html')}}"></div>
+    <script>
+        includeHTML();
+    </script>
+
     <center>
         <!-- These are what the variables look like -->
         <h1>{{ title }}</h1>
@@ -26,30 +34,30 @@
             <p>{{bigBlurb}}</p>
             <p>{{littleTitle}}</p>
 
-            <!-- I'm testing this section -->
-            <!-- Add something here that makes it only need one page. -->
-            <!-- {{ url_for("python function being called", "url ending" )}} -->
-            <a href="{{ url_for(subpageFn, name=electricalProj1) }}" onclick="sendData(0)">
+            <!-- This bottomw section is mostly for display but also to test functionality. Ultimately, we can copy one section to have as many projects as we want. It's best to just comment out the parts we don't need.  -->
+            <!-- Url_for("python function being called", url ending ) -->
+            <a href="{{ url_for(subpageFn, name=proj1) }}" onclick="sendData(0)">
+                <!-- without the single quotes, its taken as a variable. This allows our URLs to be dynamic. -->
                 <p>{{proj1}}</p>
                 <p>{{proj1SmallBlurb}}</p>
             </a>
-            <a href="{{ url_for(subpageFn, name=electricalProj2) }}" onclick="sendData(1)">
+            <a href="{{ url_for(subpageFn, name=proj2) }}" onclick="sendData(1)">
                 <p>{{proj2}}</p>
                 <p>{{proj2SmallBlurb}}</p>
             </a>
-            <a href="{{ url_for(subpageFn, name=electricalProj3) }}" onclick="sendData(2)">
+            <a href="{{ url_for(subpageFn, name=proj3) }}" onclick="sendData(2)">
                 <p>{{proj3}}</p>
                 <p>{{proj3SmallBlurb}}</p>
             </a>
-            <a href="{{ url_for(subpageFn, name=electricalProj4) }}" onclick="sendData(3)">
+            <a href="{{ url_for(subpageFn, name=proj4) }}" onclick="sendData(3)">
                 <p>{{proj4}}</p>
                 <p>{{proj4SmallBlurb}}</p>
             </a>
-            <a href="{{ url_for(subpageFn, name=electricalProj5) }}" onclick="sendData(4)">
+            <a href="{{ url_for(subpageFn, name=proj5) }}" onclick="sendData(4)">
                 <p>{{proj5}}</p>
                 <p>{{proj5SmallBlurb}}</p>
             </a>
-            <a href="{{ url_for(subpageFn, name=electricalProj6) }}" onclick="sendData(5)">
+            <a href="{{ url_for(subpageFn, name=proj6) }}" onclick="sendData(5)">
                 <p>{{proj6}}</p>
                 <p>{{proj6SmallBlurb}}</p>
             </a>
@@ -72,6 +80,7 @@
             }
         </script>
 
+        <!-- This section allows us to pull the image path from the excel. Idk if this is a good idea yet, but we will see. -->
         <div class="column">
             <img id="Projects" src="{{ url_for('static',filename=imgPath) }}" alt="">
         </div>

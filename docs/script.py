@@ -4,15 +4,11 @@ import numpy
 
 app = Flask('testapp', template_folder='docs', static_folder='docs\static')
 sheetName = ""
-excelPath = 'docs\\Projects-Information.xlsx' 
 
 #This allows us to change the path of the excel if we need to
+excelPath = 'docs\\Projects-Information.xlsx' 
 
-# For this we can easily add more functions. This method simplifies the url and removes the html tag at the end (I personally hate it)
-
-# The below function is the code used to read an individual cell from the excel sheet
-# the variables are self explanitory. Sheet, line, and row are the only variables that are changed with different uses of the function
-# OnboardFile does not change 
+# The below function is the code used to read an individual cell from the excel sheet. The variables are self explanitory. Sheet, line, and row are the only variables that are changed with different uses of the function. OnboardFile does not change 
 def ReadOnboard(OnboardFile, row, col, sheet):
     Data=pandas.read_excel(OnboardFile,sheet_name=sheet,engine='openpyxl')
     Data=Data.replace(numpy.nan,'End',regex=True)
@@ -38,7 +34,8 @@ class MyClass:
     # This function is used to return the variable that is used to pick pages
     def get_var():
         return MyClass.num
-    
+
+# For this we can easily add more functions. This method simplifies the url and removes the html tag at the end (I personally hate it)    
 @app.route('/') # This is the URL and function that renders the home page
 def home():
     return render_template('index.html') 
@@ -49,6 +46,7 @@ def projects():
     
     # The below lines call the global function at the top of the page and 
     # and are pin pointed to specific cells in the excel sheet
+    title = "Subteams"
     electricalBlurb = ReadOnboard(excelPath, 0, 2, sheetName)
     electricalImage=ReadOnboard(excelPath, 0, 4, sheetName)
     mechanicalBlurb = ReadOnboard(excelPath, 1, 2, sheetName)
@@ -59,8 +57,9 @@ def projects():
     businessImage = ReadOnboard(excelPath, 3, 4, sheetName)
     
     # This renders the html page in question and passes the above variables into the page. There are tags on the page that match the variables. This is where the variables are printed
-    return render_template('subteam-grid.html', electricalBlurb=electricalBlurb, 
-    electricalImage=electricalImage,
+    return render_template('subteam-grid.html', title=title, 
+                           electricalBlurb=electricalBlurb, 
+                           electricalImage=electricalImage,
                            mechanicalBlurb=mechanicalBlurb, 
                            mechanicalImage=mechanicalImage,
                            programmingBlurb=programmingBlurb, 
@@ -137,6 +136,7 @@ def electricalProjects(name):
 
 @app.route('/about-us')
 def about():
+    # In many cases, you won't need to add any functions or pass variables. If Front-End or Execs want it to be pulled, then we can pull it from the excel
     return render_template('about-us.html')
        
 @app.route('/sponsorship')

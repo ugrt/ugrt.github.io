@@ -1,6 +1,7 @@
+<!-- This is the Project Template page and is dynamic based on the link clicked. the entire page is filled with variables and pulls information from the excel. -->
+
 <!DOCTYPE html>
 <html lang="en">
-<!-- This code hasn't been edited. Not finalized. -->
 
 <head>
     <title>{{title}}</title>
@@ -8,15 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css">
     <link rel="icon" href="{{ url_for('static',filename='Arm_standalone.png') }}" type="image/x-icon">
+    <!-- This is some script the website told me to add... -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- above is the info for the page. Feel Free to Copy and past. You might need to change the title portion if the page doesn't need flask -->
 </head>
 
 <body> <!-- Anything in body is shown on the page -->
 
-    <!-- The nav menu that links to the js file. 
-    Jank as it gets, but it seems to be working nicely.
-    Open to suggestions!-->
-    <script src="{{ url_for('static',filename='Flask-navmenu.js') }}"></script>
+    <script src="{{url_for('static',filename='includeHTML.js')}}"></script>
 
+    <div include-html="{{url_for('static',filename='header.html')}}"></div>
+    <script>
+        includeHTML();
+    </script>
 
     <h1 style="text-align: center;">{{title}}</h1>
 

@@ -20,10 +20,7 @@
     <script src="{{url_for('static',filename='includeHTML.js')}}"></script>
 
     <div include-html="{{url_for('static',filename='header.html')}}"></div>
-    <script>
-        // This might have to move to the bottom of the page when we add a footer.
-        includeHTML();
-    </script>
+
 
     <!-- This is the code that allows us to have the overlay with the txt. -->
     <div class="index-container">
@@ -37,6 +34,11 @@
         </div>
     </div>
 
+    <div include-html="{{url_for('static',filename='footer.html')}}"></div>
+    <script>
+        // This might have to move to the bottom of the page when we add a footer.
+        includeHTML();
+    </script>
 </body>
 
 </html>

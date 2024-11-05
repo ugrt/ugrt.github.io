@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Footer</title>
+    <style>
+        .footer .site-directory {
+            padding: 5px;
+            text-align: left;
+            flex: 1;
+        }
+
+
+        .footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer .container>div {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .contact-us form input[type="email"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .footer .contact-us form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer .contact-us form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script> function submitEmail() { var email = document.getElementById('email').value; alert('Email submitted: ' + email); } </script>
+</head>
+
+<body>
+    <footer class="footer">
+        <div class="container">
+            <div class="site-directory">
+                <h3>Site Directory</h3>
+                <ul>
+                    <li><a href="/" class="noULine" style="color: white;">Home</a></li>
+                    <li><a href="/about-us" class="noULine" style="color: white;">About Us</a></li>
+                    <li><a href=" /subteams" class="noULine" style="color: white;">Subteams</a></li>
+                    <li><a href="/" class="noULine" style="color: white;">Sponsorships</a></li>
+                    <li><a href="/" class="noULine" style="color: white;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="contact-us">
+                <h3 style="text-align: left;">Let's Keep in Touch!</h3>
+                <form> <input type="email" id="email" name="email" placeholder="Enter your email" required> <button
+                        type="button" onclick="submitEmail()">Submit</button> </form>
+                <p>Email: <a href="mailto:ugrt@uoguelph.ca" class="noULine">ugrt@uoguelph.ca</a></p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Address: 50 Stone Rd. E</p>
+            </div>
+        </div>
+    </footer>
+</body>

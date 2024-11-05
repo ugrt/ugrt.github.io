@@ -1,41 +1,56 @@
-<!-- 
-This is the header document that will be displayed on all the pages. To include it, please see includeHTML.js for the syntax. 
--->
+<!DOCTYPE html>
+<html lang="en">
 
-<nav class="sticky-nav">
-    <a href="/">
-        <img id="no-background-team-logo" src="\static\images\Logo_noBgd.png">
-    </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-    <ul class="nav-list">
-        <!-- This is the list of the different pages-->
-
-        <div class="dropdown">
-            <!-- This is how you make a tab -->
-            <li><a href="/about-us">About Us</a></li>
-
+<body>
+    <nav class="sticky-nav">
+        <a href="/">
+            <img id="no-background-team-logo" src="\static\images\Logo_noBgd.png" alt="Team Logo">
+        </a>
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
-
-        <div class="dropdown">
-            <li><a href="/subteams">Subteams</a></li>
-            <!-- This is how you add dropdowns. Easiest to just copy and paste. -->
-            <div class="dropdown-content">
-                <a href="/subteams/electrical">Electrical</a>
-                <a href="/subteams/mechanical">Mechanical</a>
-                <a href="/subteams/programming">Programming</a>
-                <a href="/subteams/marketing">Marketing</a>
+        <ul class="nav-list" id="nav-list">
+            <div class="dropdown">
+                <li><a href="/about-us">About Us</a></li>
             </div>
-        </div>
-
-        <div class="dropdown">
-            <li><a href="/">Sponsorships</a></li>
-            <div class="dropdown-content">
-                <a href="/">Opportunities</a>
+            <div class="dropdown">
+                <li><a href="/subteams">Subteams</a></li>
+                <div class="dropdown-content">
+                    <a href="/subteams/electrical">Electrical</a>
+                    <a href="/subteams/mechanical">Mechanical</a>
+                    <a href="/subteams/programming">Programming</a>
+                    <a href="/subteams/marketing">Marketing</a>
+                </div>
             </div>
-        </div>
+            <div class="dropdown">
+                <li><a href="/">Sponsorships</a></li>
+                <div class="dropdown-content">
+                    <a href="/">Opportunities</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <li id="footer"><a href="/">Contact Us</a></li>
+            </div>
+        </ul>
+    </nav>
+    <script>
+        document.getElementById('footer').addEventListener('click', function () {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
 
-        <div class="dropdown">
-            <li><a href="/">Contact Us</a></li>
-        </div>
-    </ul>
-</nav>
+        document.getElementById('hamburger').addEventListener('click', function () {
+            var navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        });
+    </script>
+</body>
+
+</html>

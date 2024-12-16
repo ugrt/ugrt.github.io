@@ -131,7 +131,9 @@ ul li a::after {
     opacity: 1;
     top: 1%;
     visibility: visible;
+
 }
+
 
 .footer {
     background-color: var(--guelph-black-transparent);

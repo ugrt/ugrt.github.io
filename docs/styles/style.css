@@ -1,48 +1,87 @@
-/* Basically setting the default margins and padding */
-* {
-    margin: 0;
-    padding: 0;
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body {
+    font-family: arial black;
+    font-size: 100%;
+    background-color: #f3d689;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #c9c9c9;
-    height: 80px; /* Standard height for navbar */
-    padding: 0 30px; /* Reduce horizontal padding */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+/*Navigation Bar styles*/
+nav {
+    background-color:#ec9a1f;
+    padding-top: 0%;
+    padding-bottom: 0%;
 
-.navbar-logo img {
-    height: 50px; /* Reduce logo height */
-    width: auto;
-    margin-left: 0; /* Remove excessive margin */
-    margin-top: 0;
-    margin-bottom: 0;
 }
-
-.navbar-links {
+nav img {
+    width: 15%;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding-top: 0.5%;
+    float: left; /* This ignores other elements' formats*/
+}
+nav ul li{
+    display: inline-block;
     list-style: none;
-    display: flex;
-    gap: 20px; /* Smaller gap between links */
-    margin-right: 0; /* Remove excessive margin */
-    padding: 0;
+    padding: 2.5%;
+    margin-top: 0%;
+    margin-left: 0%;
 }
-
-.navbar-links li a {
+nav ul li a{
+    color:#090a0e;
     text-decoration: none;
-    color: rgb(40, 40, 40);
-    font-family: Inter, sans-serif;
-    font-size: 16px; /* Standard font size for links */
-    font-weight: bold;
-    transition: color 0.3s;
+    font-size: 18px;
+    position: relative;
+}
+ul li a::after{
+    background: #090a0e;
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 7%;
+    left: 0;
+    bottom: -15%;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{/* this is the part of the code which allows you to make the pink underline appear by hovering over the text*/
+    width: 100%;
+} 
+nav li:hover ul#projects-dropdown {
+    background-color:#ec9a1f;
+    opacity: 1;
+    top: 1%;
+    visibility: visible;
+}
+#projects-dropdown {
+    opacity: 0;
+    position: absolute;
+    margin-top: 5%; /*These margins are referencing the previous list item*/
+    margin-left: 0%;
+    visibility: hidden;
+    z-index: 1;
+    
+}
+#projects-dropdown li {
+    float: none;
+    outline-width: 7%;
+    outline-color: #090a0e;
+    width: 100%;
 }
 
-.navbar-links li a:hover {
-    text-decoration: underline; /* Add underline on hover */
-    color: #C20430; /* Change color on hover */
+/*Header Styles*/
+h1 {
+    background-image: url("images/2022 Competition/the fire one.jpg");
+    font-size: 9em;
+    text-align: center;
+    padding: 6%;
+    position: relative;
+    text-shadow: 4px 4px #ec9a1f;
+    z-index: 1;
+    /* transition: ease-in-out 0.5s; */
+}
+h1 img {
+    position: relative;
+    width: 100%;
 }

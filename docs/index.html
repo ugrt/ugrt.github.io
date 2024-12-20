@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <title>UGRT Home Page</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotics Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/style.css">
 </head>
+    <body> <!-- Anything in body is shown on the page -->
+        <nav>
+            <img src="images/Logo_noBgd.png"/>
+            <ul> <!-- This is the list of the different pages-->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Rover</a></li>
+                <li><a href="index.html">Projects</a>
+                    <ul id="projects-dropdown">
+                        <li><a href="index.html"></a>Mechanical</a></li>
+                        <li><a href="index.html"></a>Electrical</a></li>
+                        <li><a href="index.html"></a>Software</a></li>
+                        <li><a href="index.html"></a>Firmware</a></li>
+                        <li><a href="index.html"></a>Other</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html">Sponsors</a></li>
+                <li><a href="index.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <h1>
+            <centre>
+            Coming Soon,
+            <br>
+            Guelph Robotics.
+            <!-- <img src="images/2022 Competition/the fire one.jpg"/> -->
+            </centre>
+        </h1>
 
-
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-logo">
-            <img src="images/Logo_noBgd.png" alt="Robotics Team Logo">
-        </div>
-        <ul class="navbar-links">
-            <!-- Obviously these hyperlinks won't go link to anywhere since we don't got the other pages atm -->
-            <li><a href="#home-page">Home</a></li>
-            <li><a href="#robot">Robot(idk)</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#sponsors">Sponsors</a></li>
-        </ul>
-    </nav>
-</body>
+    </body>
 </html>

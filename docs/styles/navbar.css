@@ -1,0 +1,48 @@
+/* Basically setting the default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c9c9c9;
+    height: 80px; /* Standard height for navbar */
+    padding: 0 30px; /* Reduce horizontal padding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-logo img {
+    height: 50px; /* Reduce logo height */
+    width: auto;
+    margin-left: 0; /* Remove excessive margin */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Smaller gap between links */
+    margin-right: 0; /* Remove excessive margin */
+    padding: 0;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: rgb(40, 40, 40);
+    font-family: Inter, sans-serif;
+    font-size: 16px; /* Standard font size for links */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar-links li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #C20430; /* Change color on hover */
+}

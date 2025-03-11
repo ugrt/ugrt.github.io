@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>UGRT Home Page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-    <body> <!-- Anything in body is shown on the page -->
-        <nav>
-            <img src="images/Logo_noBgd.png"/>
-            <ul> <!-- This is the list of the different pages-->
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">Rover</a></li>
-                <li><a href="index.html">Projects</a>
-                    <ul id="projects-dropdown">
-                        <li><a href="index.html"></a>Mechanical</a></li>
-                        <li><a href="index.html"></a>Electrical</a></li>
-                        <li><a href="index.html"></a>Software</a></li>
-                        <li><a href="index.html"></a>Firmware</a></li>
-                        <li><a href="index.html"></a>Other</a></li>
-                    </ul>
-                </li>
-                <li><a href="index.html">Sponsors</a></li>
-                <li><a href="index.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        <h1>
-            <centre>
-            Coming Soon,
-            <br>
-            Guelph Robotics.
-            <!-- <img src="images/2022 Competition/the fire one.jpg"/> -->
-            </centre>
-        </h1>
+    <head>
+        <base href="/docs/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1">
+        <title>UGRT Home</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
 
+    <body>
+
+        <div id="navbar-container">hello</div>
+        <!--body-->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="column-left">
+                    <img class="icon" src="images/rover/front_noWires.png" style="width:325px; height: 325px;">
+                </div>
+                <div class="column-right">
+                    <h3><span class= "grey">UNIVERSITY OF GUELPH'S</span></h3>
+
+                    <h3><span class= "red">ROBOTICS TEAM</span></h3>
+                    <p>The University of Guelph Robotics Team connects students to learn and 
+                        build Robots! The students here at the University of Guelph are dedicated 
+                        to developing high quality robotics for competitions and teaching practical 
+                        engineering skills.</p>
+
+                </div>
+            </div>
+        </section>
+
+        <script src="js/include-nav.js"></script>
     </body>
+
 </html>
